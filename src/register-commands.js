@@ -1,11 +1,41 @@
 const { Client_ID, Guild_ID, Token } = require('../config.json')
-const { REST, Routes } = require('discord.js');
+const { REST, Routes, ApplicationCommandOptionType } = require('discord.js');
 
 const commands = [
   {
     name: 'hey',
     description: 'Replies with hey!',
   },
+  {
+    name: 'duel',
+    description: 'Fight sokka',
+    options: [
+      {
+        name: 'with',
+        description: "Fight sokka with",
+        type: ApplicationCommandOptionType.String,
+        require: true,
+        choices: [
+          {
+            name: 'hand',
+            value: 'hand'
+          },
+          {
+            name: 'sword',
+            value: 'sword'
+          },
+          {
+            name: 'bending',
+            value: 'bending'
+          },
+          {
+            name: 'bow',
+            value: 'bow'
+          },
+        ]
+      }
+    ]
+  }
 
 ];
 

@@ -28,6 +28,29 @@ client.on('interactionCreate', (interaction) => {
   if (interaction.commandName === "hey") {
     interaction.reply("What's up nerd!")
   }
+  if (interaction.commandName === 'duel') {
+    const wepon = interaction.options.get('with').value;
+    if (wepon === 'hand') {
+      interaction.reply("Ouch! What was that for??")
+
+    } else if (wepon === 'sword') {
+      interaction.reply("Too easy!")
+
+
+    } else if (wepon === 'bending') {
+      interaction.reply("nahhhh i am forfit.")
+
+
+    } else if (wepon === 'bow') {
+      interaction.reply("I was born for this.")
+
+
+    } else {
+      interaction.reply("What the heck was that?")
+
+
+    }
+  }
 })
 
 client.login(Token);
