@@ -1,5 +1,5 @@
 const { Client, IntentsBitField } = require("discord.js");
-const { Token } = require("./config.json");
+const { Token } = require("../config.json");
 
 const client = new Client({
   intents: [
@@ -20,6 +20,13 @@ client.on('messageCreate', (msg) => {
   }
   if (msg.content === 'hello') {
     msg.reply("What's up nerd!")
+  }
+})
+client.on('interactionCreate', (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "hey") {
+    interaction.reply("What's up nerd!")
   }
 })
 
