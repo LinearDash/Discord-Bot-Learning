@@ -1,4 +1,4 @@
-const { Client, IntentsBitField, EmbedBuilder } = require("discord.js");
+const { Client, IntentsBitField, EmbedBuilder, Message } = require("discord.js");
 const { Token } = require("../config.json");
 
 const client = new Client({
@@ -17,6 +17,24 @@ client.on('ready', (c) => {
 client.on('messageCreate', (msg) => {
   if (msg.author.bot) {
     return;
+  }
+  if (msg.content === 'Embed') {
+    const embed = new EmbedBuilder()
+      .setTitle('This is an Embed Title.')
+      .setDescription('This is the discription of the embed.this is a test for discription i just watnt to make it long to see how it looks.')
+      .setColor('Random')
+      .addFields({
+        name: 'First Field',
+        value: 'random value gooooo.',
+        inline: true,
+      },
+        {
+          name: 'Second Field',
+          value: 'Go Go Power Ranger.',
+          inline: true
+
+        });
+    msg.channel.send({ embeds: [embed] });
   }
   if (msg.content === 'hello') {
     msg.reply("What's up nerd!")
@@ -55,6 +73,19 @@ client.on('interactionCreate', (interaction) => {
     const embed = new EmbedBuilder()
       .setTitle('This is an Embed Title.')
       .setDescription('This is the discription of the embed.this is a test for discription i just watnt to make it long to see how it looks.')
+      .setColor('Random')
+      .addFields({
+        name: 'First Field',
+        value: 'random value gooooo.',
+        inline: true,
+      },
+        {
+          name: 'Second Field',
+          value: 'Go Go Power Ranger.',
+          inline: true
+
+        });
+
     interaction.reply({ embeds: [embed] })
   }
 })
