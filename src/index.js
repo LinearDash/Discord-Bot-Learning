@@ -1,4 +1,4 @@
-const { Client, IntentsBitField } = require("discord.js");
+const { Client, IntentsBitField, EmbedBuilder } = require("discord.js");
 const { Token } = require("../config.json");
 
 const client = new Client({
@@ -50,6 +50,12 @@ client.on('interactionCreate', (interaction) => {
 
 
     }
+  }
+  if (interaction.commandName === "embed") {
+    const embed = new EmbedBuilder()
+      .setTitle('This is an Embed Title.')
+      .setDescription('This is the discription of the embed.this is a test for discription i just watnt to make it long to see how it looks.')
+    interaction.reply({ embeds: [embed] })
   }
 })
 

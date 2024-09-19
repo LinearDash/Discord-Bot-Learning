@@ -35,6 +35,10 @@ const commands = [
         ]
       }
     ]
+  },
+  {
+    name: 'embed',
+    description: 'To test embeds'
   }
 
 ];
